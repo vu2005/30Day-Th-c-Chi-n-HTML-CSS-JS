@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        background: rgb(40, 213, 40);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .boxinput {
+        border: 1px solid #000;
+        background: white;
+        padding: 5px;
+        position: relative;
+        border-radius: 10px;
+    }
+
+    .boxinput i {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .boxinput>input {
+        border-radius: 10px;
+        border: none;
+        outline: navajowhite;
+        padding: 10px;
+    }
+
+    .boxinput i::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #000;
+        top: 6px;
+        left: 0;
+        transform: rotate(45deg);
+        opacity: 0;
+        transition: 0.2s;
+    }
+
+    .boxinput i.active::after {
+        opacity: 1;
+    }
+</style>
+
+<body>
+    <div class="boxinput">
+        <input type="password" placeholder="Vui lòng nhập mật khẩu" id="input-pass">
+        <i class="fa-solid fa-eye" id="show-pass"></i>
+    </div>
+    <script>
+
+        const btnShowPass = document.querySelector('#sho    w-pass');
+        const inputPass = document.querySelector('#input-pass');
+
+        btnShowPass.addEventListener('click', function () {
+            btnShowPass.classList.toggle('active');
+            if (inputPass.type == "password") {
+                inputPass.type = "text";
+            } else {
+                inputPass.type = "password";
+            }
+        })
+    </script>
+</body>
+
+</html>
